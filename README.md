@@ -1,3 +1,4 @@
+![alt text](http://beta.searchforharmony.org/wp-content/uploads/2017/04/image1.png "The Search for Harmony")
 ## The Search for Harmony
 A web-based game exploring the life of George Bridgetower, and Afro-European violin prodigy.
 
