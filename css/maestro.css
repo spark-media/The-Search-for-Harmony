@@ -1,0 +1,244 @@
+/*STIX General*/
+@font-face {
+    font-family: 'stixgeneralregular';
+    src: url('fonts/stixgeneral-webfont.woff2') format('woff2'),
+         url('fonts/stixgeneral-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'stixgeneralbold';
+    src: url('fonts/stixgeneralbol-webfont.woff2') format('woff2'),
+         url('fonts/stixgeneralbol-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'stixgeneralbold_italic';
+    src: url('fonts/stixgeneralbolita-webfont.woff2') format('woff2'),
+         url('fonts/stixgeneralbolita-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'stixgeneralitalic';
+    src: url('fonts/stixgeneralitalic-webfont.woff2') format('woff2'),
+         url('fonts/stixgeneralitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html {
+	background: #000;
+}
+#MGBGameWrap {
+	position: relative;
+	margin: 0 auto;
+	padding-bottom: 55.25%; /* Adjust to 45.25 for mobile, depending. */
+	padding-top: 0;
+	height: 0;
+	border: solid 15px #000;
+}
+#MGBGameDiv {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+div#MGBGameDiv:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #333;
+  animation: spinner .6s linear infinite;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+}
+#MGBGameDiv:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0;
+    z-index: 1;
+    transition: all 300ms ease;
+    visibility: hidden;
+}
+div#MGBGameDiv.fade:after {
+	opacity: 1;
+	visibility: visible;
+}
+div#MGBGameDiv.fade:before {
+    opacity: 1;
+    visibility: visible;
+}
+/* Replay Icon for previews */
+div#MGBGameDiv.fade.replay:before {
+    content: '';
+    display: block;
+    border-color: transparent white white white;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: .125em;
+    height: 1.5em;
+    width: 1.5em;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+div#MGBGameDiv.fade.replay:after {
+    border-color: transparent transparent transparent white;
+    border-style: solid;
+    border-width: .3125em 0 .3125em .5em;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+}
+
+#MGBGameMeta {
+	position: absolute;
+    top: 100%;
+    left: 0;
+    background: #000;
+    color: #eee;
+    width: 100%;
+    padding: 5px 1px;
+}
+#MGBGameMeta .MGBGameMetaTitle, #MGBGameMeta .MGBGameMetaAuthor {
+	display: block;
+	padding: 0 10px;
+	font-family: 'Helvetica', sans-serif;
+	font-size: 13px;
+	float: left;
+}
+#MGBGameMeta .MGBGameMetaAuthor {
+	float: right;
+}
+#MGBGameMeta .MGBGameMetaAuthor a {
+	color: #eee;
+}
+
+#MGBHelpModal {
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: table;
+    font-family: 'stixgeneralregular',sans-serif;
+}
+
+#MGBHelpModalInner {
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+	top: -10%;
+}
+
+#MGBHelpModalCanvas {
+    width: 600px;
+    padding: 0 40px;
+    margin: 0 auto;
+    position: relative;
+}
+// #MGBHelpModalCanvas:after {
+// 	content: '';
+// 	position: absolute;
+// 	bottom: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 50px;
+// 	background: url('../assets/general/ModalMenu@3x.png') no-repeat transparent;
+// }
+#MGBHelpModalCanvas > img {
+	position: absolute;
+    width: 100%;
+    left: 0;
+    top: 90%;
+}
+#MGBHelpModalCanvas > #MGBModalClose {
+    height: 110px;
+    width: 100px;
+    background: url('../assets/general/PlayButton@3x.png') no-repeat transparent;
+    display: block;
+    position: absolute;
+    background-size: contain;
+    left: 50%;
+    margin-left: -50px;
+    bottom: -65px;
+    cursor: pointer;
+}
+#MGBHelpModalCanvasInner {
+    max-height: 290px;
+    min-height: 250px;
+    overflow: scroll;
+    vertical-align: middle;
+    background: #fff;
+    padding: 30px;
+}
+#MGBHelpModalCanvasInner h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 29px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'stixgeneralbold',sans-serif;
+    position: relative;
+}
+#MGBHelpModalCanvasInner h2:after {
+		content: '';
+    width: 270px;
+    height: 10px;
+    margin: 0 auto;
+    background: url('../assets/general/HelpModalBar@3x.png') no-repeat transparent;
+    background-size: contain;
+    background-position: 50% 50%;
+    display: block;
+}
+#MGBHelpModalCanvasInner > div {
+	font-size: 22px;
+    line-height: 31px;
+    text-align: center;
+	padding: 0 15px 30px 15px;
+}
+#MGBHelpModalCanvasInner img {
+	max-width: 100%;
+    height: auto;
+}
+#MGBHelpModalCanvasInner strong {
+	font-family: 'stixgeneralbold',sans-serif;
+}
+
+#MGBHelpModalCanvasInner > div #MGB_more-clue a {
+    color: #333;
+    text-decoration: none;  
+}
+#MGBHelpModalCanvasInner > div #MGB_more-clue #MGB_more-clue-text {
+    display: none;
+}
